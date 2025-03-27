@@ -1,6 +1,15 @@
+import { useQuiz, useQuizDispatch } from "../context/QuizProvider";
 import { playSound } from "../utils/playSound";
 
-export const FinishScreen = ({ points, totalPoints, highscore, dispatch }) => {
+export const FinishScreen = () => {
+  const { points, highscore, questions } = useQuiz();
+  const dispatch = useQuizDispatch();
+
+  const totalPoints = questions.reduce(
+    (acc, question) => acc + question.points,
+    0
+  );
+
   const percentage = (points / totalPoints) * 100;
 
   let emoji;

@@ -1,10 +1,14 @@
-export const Progress = ({
-  index,
-  numberOfQuestions,
-  points,
-  totalPoints,
-  answer,
-}) => {
+import { useQuiz } from "../context/QuizProvider";
+
+export const Progress = () => {
+  const { index, answer, points, questions } = useQuiz();
+
+  const numberOfQuestions = questions.length;
+  const totalPoints = questions.reduce(
+    (acc, question) => acc + question.points,
+    0
+  );
+
   return (
     <div className="progress">
       <progress

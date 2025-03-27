@@ -1,7 +1,13 @@
 import { useEffect } from "react";
 import { playSound } from "../utils/playSound";
+import { useQuiz, useQuizDispatch } from "../context/QuizProvider";
 
-export const Options = ({ question, answer, dispatch }) => {
+export const Options = () => {
+  const { questions, answer, index } = useQuiz();
+  const dispatch = useQuizDispatch();
+
+  const question = questions[index];
+
   const hasAnswered = answer !== null;
 
   useEffect(() => {

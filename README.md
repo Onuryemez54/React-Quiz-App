@@ -27,6 +27,7 @@ Good luck with the test :)
 - JavaScript
 - React
 - UseReducer
+- Context Api
 
 ## Features
 

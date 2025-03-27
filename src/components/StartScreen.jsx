@@ -1,6 +1,12 @@
+import { useQuiz, useQuizDispatch } from "../context/QuizProvider";
 import { playSound } from "../utils/playSound";
 
-export const StartScreen = ({ numberOfQuestions, dispatch }) => {
+export const StartScreen = () => {
+  const { questions } = useQuiz();
+  const dispatch = useQuizDispatch();
+
+  const numberOfQuestions = questions.length;
+
   return (
     <div className="start">
       <h2>Welcome to the React Quiz!</h2>
